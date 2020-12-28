@@ -1,0 +1,261 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root {
+  --container-size: 1640px;
+}
+
+*,*::before,*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.container {
+  position: relative;
+  max-width: var(--container-size);
+  width: 100%;
+  padding: 103px;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: normal;
+
+  background-color: green;
+    
+  background: url("img/bg.jpg");
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.page--bg-card {
+  background: url("img/bg-card-2.png"), url("img/bg-card-1.png"), url("img/bg.jpg");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 35vh, 25vh, cover;
+  background-position: 100% 90%, 87% 85%, 0 0;
+}
+
+.page__header {
+  max-width: 100%;
+}
+
+.page__header h1 {
+  font-size: 3em;
+}
+
+@media (max-width: 767px) {
+  .page__header h1 {
+    font-size: 2em;
+  }
+}
+
+.page__wrapper{
+  position: relative;
+  height: 100%;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page__wrapper--cards {
+  position: relative;
+  height: 100vh;  
+}
+
+
+.page__wrapper li {
+  color: inherit;
+}
+
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  border: none;
+  border-radius: none;
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+
+  font-size: 2em;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+/* .btn:focus,
+.btn:hover {
+  opacity: 0.5;
+} */
+
+.btn--red {
+  padding: 0.5em 2em;
+  line-height: normal;
+  background-color: #D62B2E;
+}
+
+.btn--sq {
+  position: relative;
+}
+
+.btn--sq:hover::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%) rotate(45deg);
+  width: 18px;
+  height: 18px;
+  background-color: #D62B2E;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    font-size: 1.5em;
+  }
+}
+
+.list-level {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  padding-left: 20px;
+  padding-bottom: 2em;
+}
+
+.list-cards {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.list-cards--md {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.list-cards--lg {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 800px;
+}
+@media (max-width: 600px) {
+  .list-cards--lg {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}
+
+.list-cards__item {
+  flex-grow: 0;
+  flex-basis: auto;
+  min-height: 40vh;
+}
+
+@media (max-width: 1023px) {
+  .list-cards__item {
+    min-height: 35vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .list-cards__item {
+    min-height: 23vh;
+  }
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  max-height: 340px;
+  width: 100%;
+
+  background-image: url("img/card.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card:focus,
+.card:hover {
+  filter: drop-shadow(10px 10px 15px rgba(0, 0, 0, 0.5));
+  transform: rotate(-3.08deg) translateY(-10px);
+  transition: 0.5s;
+}
+
+.card--empty div,
+.card--bug div {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/card-end.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.card--bug div {
+  background-image: url("img/card-bag.png");
+}
+
+.card--empty div.active,
+.card--bug div.active {
+  opacity: 1;
+}
+
+.card__pic {
+  text-align: center;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
