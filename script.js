@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btnLevels.forEach((item) => {
       
+      if (item.classList.contains('btn--sq')) {
+        item.classList.remove('btn--sq');
+      }
+    
       item.addEventListener('click', (evt) => {
 
         btnStart.removeAttribute("disabled");
