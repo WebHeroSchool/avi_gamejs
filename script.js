@@ -65,13 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
         btnStart.removeAttribute("disabled");
 
         for (let i = 0; i < levels.length; i++) {
-          if (evt.target.innerText == levels[i].level) {
+          if (target.innerText == levels[i].level) {
             itemName = levels[i].level;
             itemCount = levels[i].count;
           }
         }
         count = itemCount;
-        target.classList.add('btn--sq');
+
+        if (target.tagName === "BUTTON") {
+          target.classList.add('btn--sq');
+        }
+        
         return console.log(itemName, count);
         
       });
