@@ -54,22 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // получаем уровень и кол-во карт
   let getGameLevel = (levels, itemName, itemCount) => {
-    console.log(levels);
-
+    let listLevel = document.querySelector('.list-level');
     let btnLevels = document.querySelectorAll('.list-level button');
 
-    btnLevels.forEach((item) => {
-      
-      if (item.classList.contains('btn--sq')) {
-        item.classList.remove('btn--sq');
-      }
-    
-      item.addEventListener('click', (evt) => {
+    listLevel.addEventListener('click', (evt) => {
+      const target = evt.target;
 
+      btnLevels.forEach((item) => {
+        item.classList.remove('btn--sq');
         btnStart.removeAttribute("disabled");
 
-        item.classList.toggle('btn--sq');
-        
         for (let i = 0; i < levels.length; i++) {
           if (evt.target.innerText == levels[i].level) {
             itemName = levels[i].level;
@@ -77,11 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
         count = itemCount;
+        target.classList.add('btn--sq');
         return console.log(itemName, count);
+        
       });
-      
     });
-    
   };
 
   let createCard = () => {
