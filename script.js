@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         count = itemCount;
 
-        if (target.tagName === 'BUTTON') {
+        if (target.tagName === "BUTTON") {
           target.classList.add('btn--sq');
         }
         
